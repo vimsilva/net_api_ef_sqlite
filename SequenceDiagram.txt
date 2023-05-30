@@ -1,0 +1,18 @@
+﻿title CashFlow (API_EF_SQLite)
+
+seq SET transaction
+CashFlowController->CashFlowDTO: Receive transaction data from request
+CashFlowController->CashFlowCore:Save transacion data
+CashFlowCore -> CashFlowDAO: Create Data Access Object to save
+CashFlowCore->CashFlowContext:save on database
+CashFlowContext -> Database: Save DAO
+end 
+
+seq GET Balance
+CashFlowController->CashFlowDTO: Receive GET request
+CashFlowController->CashFlowCore:Get Balance
+CashFlowCore -> CashFlowDAO: Create Data Access Object to get balance
+CashFlowCore->CashFlowContext:Get balance from database
+CashFlowContext -> Database: Get Data
+
+end 
